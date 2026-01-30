@@ -1,0 +1,61 @@
+---
+import { Check, X } from 'lucide-astro';
+
+const forYou = [
+  'You adjust tire pressure based on trail conditions',
+  'You\'ve wondered "was 27 or 28 PSI better last time?"',
+  'You want to dial in your setup without overthinking it',
+  'You ride the same trails regularly and want consistency',
+  'You\'ve tried Notes app but it\'s too slow and unstructured',
+];
+
+const notForYou = [
+  'You set-and-forget your settings (no judgment!)',
+  'You want detailed telemetry and data logging',
+  'You need a social platform to share with friends',
+  'You\'re looking for an AI recommendation engine',
+];
+---
+
+<section id="who-its-for" class="py-24 px-4 sm:px-6 lg:px-8 bg-black">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mb-6 tracking-tight">
+        Built for weekend warriors
+      </h2>
+      <p class="text-lg sm:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+        You ride 2-4 times a month. You've got a nice bike and you tinker with settings occasionally. You're not trying to become a suspension engineer—you just want to remember what felt good.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+        <h3 class="text-xl font-semibold text-white mb-6">
+          This is for you if:
+        </h3>
+        <ul class="space-y-4">
+          {forYou.map((item) => (
+            <li class="flex items-start gap-3">
+              <Check class="w-6 h-6 text-lime-400 flex-shrink-0 mt-0.5" />
+              <span class="text-white/70 leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+        <h3 class="text-xl font-semibold text-white mb-6">
+          This is NOT for you if:
+        </h3>
+        <ul class="space-y-4">
+          {notForYou.map((item) => (
+            <li class="flex items-start gap-3">
+              <X class="w-6 h-6 text-white/40 flex-shrink-0 mt-0.5" />
+              <span class="text-white/70 leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

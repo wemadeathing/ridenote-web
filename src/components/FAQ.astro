@@ -1,0 +1,114 @@
+---
+import { Plus, Minus } from 'lucide-astro';
+
+const faqs = [
+  {
+    question: 'How much does it cost?',
+    answer: 'Free. No ads, no subscriptions, no in-app purchases. Just download and use.',
+  },
+  {
+    question: 'Do I need an account?',
+    answer: 'Nope. No signup, no login, no email required. Just install and start tracking.',
+  },
+  {
+    question: 'Does it work offline?',
+    answer: 'Yes! RideNote is built to work at trailheads with no cell service. Everything is stored locally on your phone.',
+  },
+  {
+    question: 'What data do you collect?',
+    answer: 'None. Zero. We don\'t have analytics, tracking, or servers. Your data stays on your device.',
+  },
+  {
+    question: 'Can I track multiple bikes?',
+    answer: 'Yes! Add as many bikes as you want. Each gets its own baseline and ride history.',
+  },
+  {
+    question: 'Does it work with hardtails or rigid bikes?',
+    answer: 'Yes. Choose your bike type (Full suspension, Hardtail, or Rigid) and the app adapts. Hardtails track fork only, rigid bikes track tire pressure only.',
+  },
+  {
+    question: 'Can I export my data?',
+    answer: 'Not yet, but it\'s on the roadmap. For now, everything stays in the app.',
+  },
+  {
+    question: 'What about Android?',
+    answer: 'iOS only for now. If there\'s enough demand post-launch, I\'ll consider Android.',
+  },
+  {
+    question: 'Does it track rides like Strava?',
+    answer: 'No. RideNote doesn\'t track distance, speed, or GPS routes. It only tracks bike settings and how they felt. Use it alongside Strava if you want ride tracking.',
+  },
+  {
+    question: 'Can I sync across devices?',
+    answer: 'Not currently. Each iPhone has its own local database. Cloud sync may come in a future update.',
+  },
+];
+---
+
+<section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
+
+  <div class="max-w-3xl mx-auto relative">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mb-4 tracking-tight">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <div class="space-y-0 divide-y divide-white/10 bg-white/5 rounded-xl overflow-hidden border border-white/10">
+      {faqs.map((faq, index) => (
+        <div class="faq-item">
+          <button
+            class="faq-button w-full py-6 px-6 flex justify-between items-center text-left group hover:bg-white/5 transition-colors"
+            data-faq-index={index}
+          >
+            <span class="text-lg text-white pr-8 font-medium">
+              {faq.question}
+            </span>
+            <div class="flex-shrink-0">
+              <Plus class="w-5 h-5 text-white faq-icon-plus transition-transform" />
+              <Minus class="w-5 h-5 text-white faq-icon-minus hidden transition-transform" />
+            </div>
+          </button>
+          <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+            <div class="pb-6 px-6">
+              <p class="text-white/60 leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-button');
+
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling as HTMLElement;
+        const plusIcon = button.querySelector('.faq-icon-plus') as HTMLElement;
+        const minusIcon = button.querySelector('.faq-icon-minus') as HTMLElement;
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        faqButtons.forEach((otherButton) => {
+          const otherContent = otherButton.nextElementSibling as HTMLElement;
+          const otherPlusIcon = otherButton.querySelector('.faq-icon-plus') as HTMLElement;
+          const otherMinusIcon = otherButton.querySelector('.faq-icon-minus') as HTMLElement;
+
+          otherContent.style.maxHeight = '0';
+          otherPlusIcon.classList.remove('hidden');
+          otherMinusIcon.classList.add('hidden');
+        });
+
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          plusIcon.classList.add('hidden');
+          minusIcon.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>

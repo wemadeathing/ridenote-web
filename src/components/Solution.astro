@@ -1,0 +1,54 @@
+---
+import { Sliders, Zap, WifiOff } from 'lucide-astro';
+
+const features = [
+  {
+    icon: Sliders,
+    title: 'Set your baseline',
+    description: 'Save your go-to tire pressure, suspension, and rebound. They pre-fill every entry.',
+  },
+  {
+    icon: Zap,
+    title: 'Log in 60 seconds',
+    description: 'After a ride, note what changed and how it felt. Quick, simple, done.',
+  },
+  {
+    icon: WifiOff,
+    title: 'Works at the trailhead',
+    description: 'No signal, no account, no sync headaches. Everything stays on your phone.',
+  },
+];
+---
+
+<section id="solution" class="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-lime-400/5 via-transparent to-transparent pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+    <div class="text-center mb-20">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mb-6 tracking-tight">
+        RideNote remembers so you don't have to
+      </h2>
+      <p class="text-lg sm:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
+        Save your baseline setup once. After each ride, log what you changed and how it felt. Before your next ride, check what worked. That's it.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {features.map((feature, index) => (
+        <div class="relative">
+          <div class="relative p-10 rounded-3xl bg-white/5 h-full border border-white/10">
+            <div class="w-12 h-12 bg-gradient-to-br from-lime-400 to-lime-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lime-400/20">
+              <feature.icon class="w-6 h-6 text-gray-900" />
+            </div>
+            <h3 class="text-xl text-white mb-3 tracking-tight">
+              {feature.title}
+            </h3>
+            <p class="text-white/60 leading-relaxed text-[15px]">
+              {feature.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

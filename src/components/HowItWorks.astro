@@ -1,0 +1,101 @@
+---
+import { Plus, Minus } from 'lucide-astro';
+
+const steps = [
+  {
+    number: '1',
+    title: 'Set Your Baseline',
+    subtitle: 'One-time setup',
+    description: 'Add your bike and set your "normal" settings: tire pressure (front/rear), suspension pressure (fork/shock), sag percentages. Optional: Rebound, compression, lockout, tokens. Takes 5 minutes. You only do this once.',
+  },
+  {
+    number: '2',
+    title: 'Log What Changes',
+    subtitle: '60 seconds after each ride',
+    description: 'Your baseline auto-fills. You only log what\'s different. Rate how it felt using three sliders: Grip (Loose ↔ Grippy), Feel (Firm ↔ Plush), Control (Sketchy ↔ Dialed). Add trail name, conditions (wet/rooty), and save.',
+  },
+  {
+    number: '3',
+    title: 'Search & Compare',
+    subtitle: 'Find what worked in seconds',
+    description: '"What PSI worked at Silvermine last time?" Search by trail name, filter by conditions, sort by rating. See exactly what you ran and how it felt.',
+  },
+];
+---
+
+<section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8 bg-black">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight">
+        How It Works
+      </h2>
+    </div>
+
+    <div class="space-y-0 divide-y divide-white/10 bg-white/5 rounded-xl overflow-hidden border border-white/10">
+      {steps.map((step, index) => (
+        <div class="how-it-works-item">
+          <button
+            class="how-it-works-button w-full py-6 px-6 flex justify-between items-center text-left group hover:bg-white/5 transition-colors"
+            data-step-index={index}
+          >
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-lime-400 rounded-full flex items-center justify-center text-black font-semibold">
+                {step.number}
+              </div>
+              <div class="flex flex-col pr-8">
+                <span class="text-lg text-white font-semibold">
+                  {step.title}
+                </span>
+                <span class="text-sm text-white/60">
+                  {step.subtitle}
+                </span>
+              </div>
+            </div>
+            <div class="flex-shrink-0">
+              <Plus class="w-5 h-5 text-white step-icon-plus transition-transform" />
+              <Minus class="w-5 h-5 text-white step-icon-minus hidden transition-transform" />
+            </div>
+          </button>
+          <div class="step-content overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+            <div class="pb-6 px-6">
+              <p class="text-white/60 leading-relaxed ml-14">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const stepButtons = document.querySelectorAll('.how-it-works-button');
+
+    stepButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling as HTMLElement;
+        const plusIcon = button.querySelector('.step-icon-plus') as HTMLElement;
+        const minusIcon = button.querySelector('.step-icon-minus') as HTMLElement;
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+        stepButtons.forEach((otherButton) => {
+          const otherContent = otherButton.nextElementSibling as HTMLElement;
+          const otherPlusIcon = otherButton.querySelector('.step-icon-plus') as HTMLElement;
+          const otherMinusIcon = otherButton.querySelector('.step-icon-minus') as HTMLElement;
+
+          otherContent.style.maxHeight = '0';
+          otherPlusIcon.classList.remove('hidden');
+          otherMinusIcon.classList.add('hidden');
+        });
+
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          plusIcon.classList.add('hidden');
+          minusIcon.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>

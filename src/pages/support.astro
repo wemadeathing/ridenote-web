@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Support & FAQ - RideNote">
+  <div class="min-h-screen bg-white">
+    <Navigation />
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-12">RideNote - Support & FAQ</h1>
+
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Getting Started</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What is RideNote?</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          RideNote helps mountain bikers track bike settings and remember what worked on different trails. It's a personal ride journal focused on tire pressure, suspension settings, and how each setup felt.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">How does it work?</h3>
+        <ol class="list-decimal pl-6 text-gray-700 space-y-2 mb-6">
+          <li><strong>Set your baseline:</strong> Enter your "normal" tire and suspension pressures once</li>
+          <li><strong>Log what changes:</strong> After a ride, note what you adjusted and how it felt</li>
+          <li><strong>Search later:</strong> When you return to a trail, quickly see what worked before</li>
+        </ol>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Everything is stored locally on your phone—no account, no cloud sync.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Who is this for?</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Weekend warriors who ride 2-4 times a month and want to remember settings without becoming suspension engineers. If you've ever wondered "was 27 or 28 PSI better last time?"—this is for you.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What it's NOT:</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Not a social platform or community</li>
+          <li>Not a technical suspension tuning tool</li>
+          <li>Not a bike maintenance tracker</li>
+          <li>Not an AI recommendation engine</li>
+        </ul>
+
+        <hr class="my-12 border-gray-300">
+
+        <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Common Questions</h2>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">General</h3>
+
+        <div class="space-y-6">
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Do I need an account?</p>
+            <p class="text-gray-700 leading-relaxed">No. RideNote works entirely offline with no login required.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Does it cost money?</p>
+            <p class="text-gray-700 leading-relaxed">The app is free at launch. If we add premium features later, the core functionality will remain free.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Does it work offline?</p>
+            <p class="text-gray-700 leading-relaxed">Yes! RideNote is designed for trailheads with no cell service. Everything works without internet.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: What happens to my data?</p>
+            <p class="text-gray-700 leading-relaxed">All data stays on your iPhone. We never see it, collect it, or transmit it anywhere.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Can I use it on Android?</p>
+            <p class="text-gray-700 leading-relaxed">Not yet. iPhone only for now.</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">Bikes</h3>
+
+        <div class="space-y-6">
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Can I track multiple bikes?</p>
+            <p class="text-gray-700 leading-relaxed">Yes! Add as many bikes as you own. Each bike has its own baseline settings and ride history.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: What bike types are supported?</p>
+            <p class="text-gray-700 leading-relaxed">Full suspension, Hardtail (fork only), and Rigid (no suspension).</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Can I add a bike photo?</p>
+            <p class="text-gray-700 leading-relaxed">Yes, it's optional. Choose from your camera roll when setting up a bike.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Can I change my baseline later?</p>
+            <p class="text-gray-700 leading-relaxed">Absolutely. Your baseline isn't locked—update it anytime as your preferences evolve.</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">Logging Setups</h3>
+
+        <div class="space-y-6">
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: What's a "baseline"?</p>
+            <p class="text-gray-700 leading-relaxed">Your baseline is your default/normal pressure settings. The app pre-fills these values when you log a new setup, so you only need to change what's different. Saves time.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Do I have to log every field?</p>
+            <p class="text-gray-700 leading-relaxed">No. The only required field is rating the ride (Grip/Feel/Control sliders). Everything else is optional.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: What are "Grip, Feel, and Control"?</p>
+            <p class="text-gray-700 leading-relaxed mb-2">These are three dimensions for rating how your bike felt:</p>
+            <ul class="list-disc pl-6 text-gray-700 space-y-1">
+              <li><strong>Grip:</strong> How much traction you had (Loose ↔ Grippy)</li>
+              <li><strong>Feel:</strong> How the suspension felt (Firm ↔ Plush)</li>
+              <li><strong>Control:</strong> How confident you felt (Sketchy ↔ Dialed)</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed mt-2">This helps you spot patterns faster than just text notes.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: Can I just write notes?</p>
+            <p class="text-gray-700 leading-relaxed">Yes! There's a dedicated "Note" feature for quick observations that aren't tied to a specific setup.</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-900 mb-2">Q: How long does it take to log a setup?</p>
+            <p class="text-gray-700 leading-relaxed">Our goal is 60 seconds or less. Most riders log: adjusted pressures, 3 slider ratings, and maybe trail name. That's it.</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">Contact Support</h3>
+
+        <p class="text-gray-700 leading-relaxed mb-4"><strong>Email:</strong> support@ridenote.co.za</p>
+
+        <p class="text-gray-700 leading-relaxed mb-2"><strong>Include in your message:</strong></p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Device model (e.g., "iPhone 14 Pro")</li>
+          <li>iOS version (e.g., "iOS 17.2")</li>
+          <li>What happened (be specific!)</li>
+          <li>Screenshots if relevant</li>
+        </ul>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          <strong>Response Time:</strong> I'm a solo developer, so please allow 1-3 business days. I'll do my best to help!
+        </p>
+
+        <hr class="my-12 border-gray-300">
+
+        <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">Stay Updated</h2>
+
+        <p class="text-gray-700 leading-relaxed mb-2">
+          <strong>Website:</strong> https://ridenote.co.za<br>
+          <strong>Email:</strong> support@ridenote.co.za
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-12">
+          No mailing list, no spam. Just occasional updates about major features or changes.
+        </p>
+
+        <p class="text-gray-500 text-sm italic">Last updated: January 22, 2026</p>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</Layout>

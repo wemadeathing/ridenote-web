@@ -1,0 +1,123 @@
+---
+import { Check } from 'lucide-astro';
+
+const plans = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: 'forever',
+    features: [
+      'Unlimited ride tracking',
+      'Basic route mapping',
+      'Photo uploads (10/month)',
+      'Mobile app access',
+      'Community features',
+    ],
+    cta: 'Start Free',
+    popular: false,
+  },
+  {
+    name: 'Pro',
+    price: '$4.99',
+    period: 'per month',
+    features: [
+      'Everything in Free',
+      'Unlimited photo uploads',
+      'Advanced analytics',
+      'Route sharing & discovery',
+      'Cloud backup',
+      'Priority support',
+      'Export your data',
+    ],
+    cta: 'Start Free Trial',
+    popular: true,
+  },
+  {
+    name: 'Lifetime',
+    price: '$99',
+    period: 'one-time',
+    features: [
+      'Everything in Pro',
+      'Lifetime access',
+      'All future features',
+      'Early access to beta',
+      'Exclusive community',
+      'Premium badge',
+    ],
+    cta: 'Get Lifetime',
+    popular: false,
+  },
+];
+---
+
+<section id="pricing" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl text-gray-900 mb-4">
+        Choose your adventure
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Start free and upgrade anytime. All plans include our core tracking features.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {plans.map((plan) => (
+        <div
+          class={`rounded-2xl p-8 ${
+            plan.popular
+              ? 'bg-emerald-600 text-white shadow-2xl scale-105 border-4 border-emerald-500'
+              : 'bg-white border-2 border-gray-200'
+          }`}
+        >
+          {plan.popular && (
+            <div class="text-center mb-4">
+              <span class="bg-white text-emerald-600 px-4 py-1 rounded-full text-sm font-semibold">
+                Most Popular
+              </span>
+            </div>
+          )}
+
+          <div class="text-center mb-8">
+            <h3 class={`text-2xl mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+              {plan.name}
+            </h3>
+            <div class="flex items-baseline justify-center gap-1">
+              <span class={`text-5xl ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                {plan.price}
+              </span>
+              <span class={plan.popular ? 'text-emerald-100' : 'text-gray-600'}>
+                /{plan.period}
+              </span>
+            </div>
+          </div>
+
+          <ul class="space-y-4 mb-8">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <Check class={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-white' : 'text-emerald-600'}`} />
+                <span class={plan.popular ? 'text-emerald-50' : 'text-gray-700'}>
+                  {feature}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            class={`w-full py-3 rounded-lg font-semibold transition-all ${
+              plan.popular
+                ? 'bg-white text-emerald-600 hover:bg-emerald-50'
+                : 'bg-emerald-600 text-white hover:bg-emerald-700'
+            }`}
+          >
+            {plan.cta}
+          </button>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center mt-12 text-gray-600">
+      All plans include a 14-day money-back guarantee. Cancel anytime.
+    </p>
+  </div>
+</section>

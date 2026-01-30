@@ -1,0 +1,114 @@
+---
+const screens = [
+  { image: '/iphone_17_pro_silver-1.png', alt: 'RideNote App - Splash Screen' },
+  { image: '/iphone_17_pro_silver-2.png', alt: 'RideNote App - Screen 2' },
+  { image: '/iphone_17_pro_silver-3.png', alt: 'RideNote App - Screen 3' },
+];
+---
+
+<style>
+  .phone-screen {
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  .phone-screen.active {
+    opacity: 1;
+  }
+
+  .phone-screen.inactive {
+    opacity: 0;
+  }
+</style>
+
+<section id="problem" class="py-24 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto relative">
+    <div class="grid lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+      <div class="lg:col-span-3 flex flex-col justify-center">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white leading-tight max-w-xl mb-6 tracking-tight">
+          Stop guessing what worked last time
+        </h2>
+
+        <div class="space-y-6 max-w-2xl">
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed">
+            You ride the same trail with 27 PSI. It feels amazing. Two weeks later you're back and can't remember if you ran 27 or 28 PSI that day.
+          </p>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed">
+            You've tried Notes app. You've tried whiteboards in the garage. You've tried just remembering.
+          </p>
+
+          <p class="text-lg sm:text-xl text-white/70 leading-relaxed">
+            None of it works when you need it most—at the trailhead, trying to decide what to run today.
+          </p>
+        </div>
+
+        <div class="flex gap-3 mt-8">
+          <button
+            class="phone-nav-button prev bg-white/5 hover:bg-white/10 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+            aria-label="Previous"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button
+            class="phone-nav-button next bg-white/5 hover:bg-white/10 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 border border-white/10"
+            aria-label="Next"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 relative flex justify-center">
+        <div class="relative w-[280px] sm:w-[320px]">
+          {screens.map((screen, index) => (
+            <img
+              src={screen.image}
+              alt={screen.alt}
+              class={`phone-screen w-full h-auto drop-shadow-2xl ${index === 0 ? 'active relative' : 'inactive absolute inset-0'}`}
+              data-index={index}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentIndex = 0;
+  const screens = document.querySelectorAll('.phone-screen');
+  const totalScreens = screens.length;
+
+  function showScreen(index: number) {
+    screens.forEach((screen, i) => {
+      if (i === index) {
+        screen.classList.remove('inactive', 'absolute', 'inset-0');
+        screen.classList.add('active', 'relative');
+      } else {
+        screen.classList.remove('active', 'relative');
+        screen.classList.add('inactive', 'absolute', 'inset-0');
+      }
+    });
+  }
+
+  function nextScreen() {
+    currentIndex = (currentIndex + 1) % totalScreens;
+    showScreen(currentIndex);
+  }
+
+  function prevScreen() {
+    currentIndex = (currentIndex - 1 + totalScreens) % totalScreens;
+    showScreen(currentIndex);
+  }
+
+  document.querySelector('.phone-nav-button.next')?.addEventListener('click', nextScreen);
+  document.querySelector('.phone-nav-button.prev')?.addEventListener('click', prevScreen);
+
+  setInterval(nextScreen, 4000);
+</script>

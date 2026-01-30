@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - RideNote">
+  <div class="min-h-screen bg-white">
+    <Navigation />
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Privacy Policy for RideNote</h1>
+      <p class="text-gray-500 mb-12">Last Updated: January 22, 2026</p>
+
+      <div class="prose prose-lg max-w-none">
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Overview</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          RideNote is a local-only mountain bike setup tracking app. We don't collect, transmit, or store any of your data on external servers. Everything stays on your device.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">What This Means</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">We don't have:</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>User accounts</li>
+          <li>Login systems</li>
+          <li>Cloud sync</li>
+          <li>Analytics tracking</li>
+          <li>Crash reporting servers</li>
+          <li>Advertising networks</li>
+          <li>Third-party SDKs that collect data</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">You control:</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>All your bike information</li>
+          <li>All your ride setups and notes</li>
+          <li>All your photos</li>
+          <li>All your checklist items</li>
+        </ul>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Everything is stored locally on your iPhone using Apple's built-in SQLite database.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Data Storage</h2>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What's Stored Locally on Your Device:</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Bike names and photos you add</li>
+          <li>Baseline tire and suspension pressures you enter</li>
+          <li>Ride setups you log (date, trail name, settings, feedback ratings, conditions)</li>
+          <li>Notes you write</li>
+          <li>Checklist items you create</li>
+          <li>Any photos you attach from your camera roll</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What's NOT Stored Anywhere:</h3>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Your name</li>
+          <li>Your email address</li>
+          <li>Your location</li>
+          <li>Your device information</li>
+          <li>Your usage patterns</li>
+          <li>Anything else about you</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Photo Access</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          When you add a bike photo or attach a photo to a ride note, RideNote requests access to your photo library. This is handled entirely by iOS. We:
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Only access photos you explicitly select</li>
+          <li>Store selected photos locally in the app's private storage</li>
+          <li>Never upload photos anywhere</li>
+          <li>Never access your photo metadata (location, date taken, etc.)</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">No Network Activity</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">RideNote works completely offline. The app:</p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Does not make network requests</li>
+          <li>Does not communicate with external servers</li>
+          <li>Does not require an internet connection to function</li>
+          <li>Will never transmit your data anywhere</li>
+        </ul>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          The only network activity would be if you choose to check for app updates through the App Store—which is controlled by Apple, not us.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">No Third-Party Services</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">We don't use:</p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Analytics services (Google Analytics, Mixpanel, etc.)</li>
+          <li>Crash reporting (Crashlytics, Sentry, etc.)</li>
+          <li>Advertising networks</li>
+          <li>Social media SDKs</li>
+          <li>Cloud storage providers</li>
+          <li>Any other third-party data collection tools</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Your Control</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">Since all data is stored locally on your device:</p>
+
+        <p class="text-gray-700 leading-relaxed mb-2"><strong>To back up your data:</strong> Use iCloud Backup or iTunes Backup. This backs up RideNote along with your other apps. This is controlled by Apple's backup system, not by RideNote.</p>
+
+        <p class="text-gray-700 leading-relaxed mb-2"><strong>To delete your data:</strong></p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Delete individual bikes, setups, or notes within the app, OR</li>
+          <li>Delete the RideNote app from your device to permanently remove all data</li>
+        </ul>
+
+        <p class="text-gray-700 leading-relaxed mb-6"><strong>To export your data:</strong> Currently not supported (coming in future update). Your data remains in the app's local database only.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Children's Privacy</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          RideNote does not collect any data from anyone, including children. We comply with COPPA (Children's Online Privacy Protection Act) by not collecting any personal information.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          That said, RideNote is designed for adult mountain bikers and is not specifically targeted at children under 13.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Changes to Privacy Policy</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">If we ever introduce features that collect data (e.g., optional cloud sync, crash reporting), we will:</p>
+        <ol class="list-decimal pl-6 text-gray-700 space-y-2 mb-6">
+          <li>Update this privacy policy</li>
+          <li>Notify users within the app</li>
+          <li>Make any data collection opt-in only</li>
+          <li>Never enable data collection by default</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">International Users</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          RideNote stores all data locally on your device, regardless of where you are located. There is no international data transfer because there is no data transmission at all.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">California Privacy Rights (CCPA)</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Under the California Consumer Privacy Act, you have rights regarding your personal information. However, since RideNote does not collect, store, or share any personal information, these rights are not applicable. There is no personal information for us to access, delete, or share.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">European Users (GDPR)</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Under the General Data Protection Regulation, you have rights regarding your personal data. However, since RideNote does not collect, process, or store any personal data on external servers, GDPR does not apply. All your data remains under your exclusive control on your device.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Contact</h2>
+        <p class="text-gray-700 leading-relaxed mb-2">
+          If you have questions about this privacy policy or RideNote's data practices:
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-2">
+          <strong>Email:</strong> support@ridenote.co.za<br>
+          <strong>Website:</strong> https://ridenote.co.za
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Since we don't collect data, we can't identify you in our systems. But we're happy to answer any questions about how the app works and how your data stays private.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-4">Summary</h2>
+        <p class="text-gray-700 leading-relaxed mb-2"><strong>The Short Version:</strong></p>
+        <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+          <li>We don't collect any data</li>
+          <li>Everything stays on your phone</li>
+          <li>No servers, no tracking, no accounts</li>
+          <li>Delete the app = delete all your data</li>
+          <li>We can't see your data because we never receive it</li>
+        </ul>
+        <p class="text-gray-700 leading-relaxed mb-12">That's it. Simple and private.</p>
+
+        <hr class="my-8 border-gray-300">
+
+        <p class="text-gray-500 text-sm italic">
+          This privacy policy was last updated on January 22, 2026. If we make changes, the "Last Updated" date will change and we'll notify users in the app.
+        </p>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+</Layout>

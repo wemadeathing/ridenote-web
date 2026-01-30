@@ -1,0 +1,67 @@
+---
+import { Database, ThumbsUp, Sliders, WifiOff, ListChecks, Search } from 'lucide-astro';
+
+const features = [
+  {
+    icon: Database,
+    title: 'Baseline Tracking',
+    description: 'Set your "normal" settings once. They auto-fill every time so you only log what changed. No repetitive data entry.',
+  },
+  {
+    icon: ThumbsUp,
+    title: 'Three-Dimensional Feedback',
+    description: 'Rate every ride on Grip, Feel, and Control. Spot patterns faster than reading paragraphs of notes.',
+  },
+  {
+    icon: Sliders,
+    title: 'Advanced Adjustments',
+    description: 'Track rebound, compression (single-dial or HSC/LSC), lockout, and volume tokens. As simple or detailed as you want.',
+  },
+  {
+    icon: WifiOff,
+    title: 'Works at the Trailhead',
+    description: 'No signal? No problem. No account required. Everything stays on your phone. Built for remote trails where you need it most.',
+  },
+  {
+    icon: ListChecks,
+    title: 'Custom Checklists',
+    description: 'Create checklists for anything: parts to buy, repairs needed, pre-ride gear check. Link them to specific setups if you want.',
+  },
+  {
+    icon: Search,
+    title: 'Search & Filter',
+    description: 'Find past setups by trail name, conditions, or ratings. Compare what worked across different trails and weather.',
+  },
+];
+---
+
+<section id="features" class="py-24 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white mb-4 tracking-tight">
+        Everything you need. Nothing you don't.
+      </h2>
+    </div>
+
+    <div class="space-y-24">
+      {features.map((feature, index) => (
+        <div class={`grid lg:grid-cols-2 gap-12 items-center`}>
+          <div class={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="relative aspect-video bg-gradient-to-br from-white/5 to-white/10 rounded-2xl border border-white/10 flex items-center justify-center">
+              <feature.icon class="w-16 h-16 text-lime-400/40" />
+            </div>
+          </div>
+
+          <div class={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <h3 class="text-2xl sm:text-3xl text-white mb-4 tracking-tight">
+              {feature.title}
+            </h3>
+            <p class="text-lg text-white/60 leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
