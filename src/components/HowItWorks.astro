@@ -70,32 +70,9 @@ const steps = [
 </section>
 
 <script>
+  import { initializeAccordion } from '../utils/accordion';
+
   document.addEventListener('DOMContentLoaded', () => {
-    const stepButtons = document.querySelectorAll('.how-it-works-button');
-
-    stepButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling as HTMLElement;
-        const plusIcon = button.querySelector('.step-icon-plus') as HTMLElement;
-        const minusIcon = button.querySelector('.step-icon-minus') as HTMLElement;
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-        stepButtons.forEach((otherButton) => {
-          const otherContent = otherButton.nextElementSibling as HTMLElement;
-          const otherPlusIcon = otherButton.querySelector('.step-icon-plus') as HTMLElement;
-          const otherMinusIcon = otherButton.querySelector('.step-icon-minus') as HTMLElement;
-
-          otherContent.style.maxHeight = '0';
-          otherPlusIcon.classList.remove('hidden');
-          otherMinusIcon.classList.add('hidden');
-        });
-
-        if (!isOpen) {
-          content.style.maxHeight = content.scrollHeight + 'px';
-          plusIcon.classList.add('hidden');
-          minusIcon.classList.remove('hidden');
-        }
-      });
-    });
+    initializeAccordion('.how-it-works-button', '.step-content', '.step-icon-plus', '.step-icon-minus');
   });
 </script>

@@ -1,10 +1,13 @@
 ---
+import { initializeScrollObserver } from '../utils/intersection-observer';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'The ultimate companion for motorcyclists and cyclists. Track your rides, capture memories, and join a community of passionate riders.' } = Astro.props;
+const DEFAULT_DESCRIPTION = 'The ultimate companion for motorcyclists and cyclists. Track your rides, capture memories, and join a community of passionate riders.';
+const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,25 +26,10 @@ const { title, description = 'The ultimate companion for motorcyclists and cycli
   <body class="antialiased bg-black">
     <slot />
     <script>
+      import { initializeScrollObserver } from '../utils/intersection-observer';
+
       document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-on-scroll');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        const sections = document.querySelectorAll('section[id]');
-        sections.forEach(section => {
-          observer.observe(section);
-        });
+        initializeScrollObserver();
       });
     </script>
   </body>

@@ -83,32 +83,9 @@ const faqs = [
 </section>
 
 <script>
+  import { initializeAccordion } from '../utils/accordion';
+
   document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('.faq-button');
-
-    faqButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const content = button.nextElementSibling as HTMLElement;
-        const plusIcon = button.querySelector('.faq-icon-plus') as HTMLElement;
-        const minusIcon = button.querySelector('.faq-icon-minus') as HTMLElement;
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-        faqButtons.forEach((otherButton) => {
-          const otherContent = otherButton.nextElementSibling as HTMLElement;
-          const otherPlusIcon = otherButton.querySelector('.faq-icon-plus') as HTMLElement;
-          const otherMinusIcon = otherButton.querySelector('.faq-icon-minus') as HTMLElement;
-
-          otherContent.style.maxHeight = '0';
-          otherPlusIcon.classList.remove('hidden');
-          otherMinusIcon.classList.add('hidden');
-        });
-
-        if (!isOpen) {
-          content.style.maxHeight = content.scrollHeight + 'px';
-          plusIcon.classList.add('hidden');
-          minusIcon.classList.remove('hidden');
-        }
-      });
-    });
+    initializeAccordion('.faq-button', '.faq-content', '.faq-icon-plus', '.faq-icon-minus');
   });
 </script>

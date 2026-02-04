@@ -1,5 +1,6 @@
 ---
 import { Menu, X } from 'lucide-astro';
+import { NAV_LINKS, CTA_BUTTON } from '../constants/navigation';
 ---
 
 <nav class="relative w-full z-50 pt-6 px-4 sm:px-6 lg:px-8">
@@ -7,25 +8,21 @@ import { Menu, X } from 'lucide-astro';
     <div class="bg-black/40 backdrop-blur-md rounded-full px-6 py-3.5 flex justify-between items-center">
       <div class="flex items-center">
         <a href="/">
-          <img src="/ridenote-logo-primary-light.png" alt="Ridenote" class="h-6 md:h-7" />
+          <img src="/images/logos/ridenote-logo-primary-light.png" alt="Ridenote" class="h-6 md:h-7" />
         </a>
       </div>
 
       <div class="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-        <a href="#problem" class="text-white/90 hover:text-white transition-colors text-sm font-medium">
-          Why RideNote
-        </a>
-        <a href="#features" class="text-white/90 hover:text-white transition-colors text-sm font-medium">
-          Features
-        </a>
-        <a href="#how-it-works" class="text-white/90 hover:text-white transition-colors text-sm font-medium">
-          How it Works
-        </a>
+        {NAV_LINKS.map(link => (
+          <a href={link.href} class="text-white/90 hover:text-white transition-colors text-sm font-medium">
+            {link.label}
+          </a>
+        ))}
       </div>
 
       <div class="hidden md:flex items-center">
-        <a href="#download" class="bg-lime-400 text-black px-6 py-2.5 rounded-full hover:bg-lime-500 transition-colors font-semibold text-sm">
-          Download App
+        <a href={CTA_BUTTON.href} class="bg-lime-400 text-black px-6 py-2.5 rounded-full hover:bg-lime-500 transition-colors font-semibold text-sm">
+          {CTA_BUTTON.label}
         </a>
       </div>
 
@@ -41,12 +38,14 @@ import { Menu, X } from 'lucide-astro';
 
   <div class="md:hidden mt-2 mobile-menu hidden">
     <div class="bg-black/40 backdrop-blur-md rounded-3xl px-6 py-4 space-y-3">
-      <a href="#problem" class="block py-2 text-white/90 font-medium mobile-menu-link">Why RideNote</a>
-      <a href="#features" class="block py-2 text-white/90 font-medium mobile-menu-link">Features</a>
-      <a href="#how-it-works" class="block py-2 text-white/90 font-medium mobile-menu-link">How it Works</a>
+      {NAV_LINKS.map(link => (
+        <a href={link.href} class="block py-2 text-white/90 font-medium mobile-menu-link">
+          {link.label}
+        </a>
+      ))}
       <div class="pt-4">
-        <a href="#download" class="block w-full bg-lime-400 text-black py-2.5 rounded-full font-semibold text-center mobile-menu-link">
-          Download App
+        <a href={CTA_BUTTON.href} class="block w-full bg-lime-400 text-black py-2.5 rounded-full font-semibold text-center mobile-menu-link">
+          {CTA_BUTTON.label}
         </a>
       </div>
     </div>
@@ -54,45 +53,11 @@ import { Menu, X } from 'lucide-astro';
 </nav>
 
 <script>
-  const menuButton = document.querySelector('.mobile-menu-button');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const menuIcon = document.querySelector('.menu-icon');
-  const closeIcon = document.querySelector('.close-icon');
-  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-  const allNavLinks = document.querySelectorAll('a[href^="#"]');
+  import { initializeMobileMenu } from '../utils/mobile-menu';
+  import { setupAnchorLinks } from '../utils/scroll-navigation';
 
-  menuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
-  });
-
-  mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-    });
-  });
-
-  allNavLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const navHeight = 100;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeMobileMenu();
+    setupAnchorLinks();
   });
 </script>
