@@ -37,6 +37,8 @@ const steps = [
           <button
             class="how-it-works-button w-full py-6 px-6 flex justify-between items-center text-left group hover:bg-white/5 transition-colors"
             data-step-index={index}
+            aria-expanded="false"
+            aria-controls={`step-content-${index}`}
           >
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-10 h-10 bg-lime-400 rounded-full flex items-center justify-center text-black font-semibold">
@@ -56,7 +58,7 @@ const steps = [
               <Minus class="w-5 h-5 text-white step-icon-minus hidden transition-transform" />
             </div>
           </button>
-          <div class="step-content overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+          <div class="step-content overflow-hidden transition-all duration-300 ease-in-out" id={`step-content-${index}`} style="max-height: 0;">
             <div class="pb-6 px-6">
               <p class="text-white/60 leading-relaxed ml-14">
                 {step.description}

@@ -1,0 +1,15 @@
+# RideNote robots.txt
+# Allow search engine crawlers to index the site
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.well-known/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Specify sitemap location
+Sitemap: https://ridenote.app/sitemap.xml
+
+# Crawl rate (requests per second)
+Crawl-delay: 1

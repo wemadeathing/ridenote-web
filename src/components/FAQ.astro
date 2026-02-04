@@ -60,6 +60,8 @@ const faqs = [
           <button
             class="faq-button w-full py-6 px-6 flex justify-between items-center text-left group hover:bg-white/5 transition-colors"
             data-faq-index={index}
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
           >
             <span class="text-lg text-white pr-8 font-medium">
               {faq.question}
@@ -69,7 +71,7 @@ const faqs = [
               <Minus class="w-5 h-5 text-white faq-icon-minus hidden transition-transform" />
             </div>
           </button>
-          <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+          <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out" id={`faq-answer-${index}`} style="max-height: 0;">
             <div class="pb-6 px-6">
               <p class="text-white/60 leading-relaxed">
                 {faq.answer}

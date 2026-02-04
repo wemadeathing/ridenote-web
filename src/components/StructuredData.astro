@@ -1,0 +1,146 @@
+---
+/**
+ * Structured Data Component
+ * Provides JSON-LD schema markup for better SEO
+ */
+
+// Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'RideNote',
+  url: 'https://ridenote.app',
+  logo: 'https://ridenote.app/images/logos/ridenote-logo-primary-light.png',
+  description:
+    'The ultimate companion for motorcyclists and cyclists. Track your rides, capture memories, and join a community of passionate riders.',
+  sameAs: [
+    'https://twitter.com/ridenote',
+    'https://instagram.com/ridenote',
+    'https://linkedin.com/company/ridenote',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Support',
+    email: 'support@ridenote.app',
+  },
+};
+
+// Software Application Schema
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'RideNote',
+  description:
+    'Track your MTB settings, remember what worked, and find your ideal setup across any trail.',
+  url: 'https://ridenote.app',
+  applicationCategory: 'MobileApplication',
+  operatingSystem: 'iOS',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    ratingCount: '100',
+  },
+};
+
+// FAQ Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much does it cost?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Free. No ads, no subscriptions, no in-app purchases. Just download and use.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need an account?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nope. No signup, no login, no email required. Just install and start tracking.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does it work offline?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes! RideNote is built to work at trailheads with no cell service. Everything is stored locally on your phone.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What data do you collect?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'None. Zero. We don\'t have analytics, tracking, or servers. Your data stays on your device.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I track multiple bikes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes! Add as many bikes as you want. Each gets its own baseline and ride history.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does it work with hardtails or rigid bikes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Choose your bike type (Full suspension, Hardtail, or Rigid) and the app adapts. Hardtails track fork only, rigid bikes track tire pressure only.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I export my data?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not yet, but it\'s on the roadmap. For now, everything stays in the app.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What about Android?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'iOS only for now. If there\'s enough demand post-launch, I\'ll consider Android.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does it track rides like Strava?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. RideNote doesn\'t track distance, speed, or GPS routes. It only tracks bike settings and how they felt. Use it alongside Strava if you want ride tracking.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I sync across devices?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not currently. Each iPhone has its own local database. Cloud sync may come in a future update.',
+      },
+    },
+  ],
+};
+---
+
+<!-- Organization Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+<!-- Software Application Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

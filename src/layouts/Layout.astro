@@ -1,5 +1,6 @@
 ---
 import { initializeScrollObserver } from '../utils/intersection-observer';
+import StructuredData from '../components/StructuredData.astro';
 
 interface Props {
   title: string;
@@ -21,6 +22,30 @@ const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://ridenote.app/images/heroes/hero-3.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ridenote.app" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://ridenote.app/images/heroes/hero-3.png" />
+    <meta name="twitter:site" content="@ridenote" />
+    <meta name="twitter:creator" content="@ridenote" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ridenote.app" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <StructuredData />
+    
     <title>{title}</title>
   </head>
   <body class="antialiased bg-black">

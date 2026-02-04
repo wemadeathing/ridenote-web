@@ -26,6 +26,7 @@ export function initializeAccordion(
         otherContent.style.maxHeight = '0';
         otherPlusIcon?.classList.remove('hidden');
         otherMinusIcon?.classList.add('hidden');
+        otherButton.setAttribute('aria-expanded', 'false');
       });
 
       // Toggle current item
@@ -33,6 +34,9 @@ export function initializeAccordion(
         content.style.maxHeight = content.scrollHeight + 'px';
         plusIcon?.classList.add('hidden');
         minusIcon?.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+      } else {
+        button.setAttribute('aria-expanded', 'false');
       }
     });
   });
