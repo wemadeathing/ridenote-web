@@ -1,5 +1,6 @@
 ---
 import { Download } from 'lucide-astro';
+import { APP_STORE_URL } from '../constants/navigation';
 ---
 
 <section class="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -13,10 +14,10 @@ import { Download } from 'lucide-astro';
     </p>
 
     <div class="flex flex-col items-center gap-4">
-      <button class="group bg-lime-400 text-black px-8 py-3 rounded-full hover:bg-lime-500 transition-all font-semibold text-base flex items-center gap-2 shadow-2xl hover:shadow-lime-400/30 transform hover:scale-105">
+      <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" class="group bg-lime-400 text-black px-8 py-3 rounded-full hover:bg-lime-500 transition-all font-semibold text-base flex items-center gap-2 shadow-2xl hover:shadow-lime-400/30 transform hover:scale-105">
         <Download class="w-5 h-5" />
         Download on the App Store
-      </button>
+      </a>
       <p class="text-sm text-white/70">
         Free • iOS 15+ • Works offline
       </p>
